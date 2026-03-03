@@ -1879,13 +1879,13 @@ h1{
     display: flex;
 }
 
-.picha{
+/* .picha{
     border-radius: 35px;
     margin: 10px;
     padding: 10px;
     transition: all0.5s ease;
-}
-.picha p {
+} */
+#chumbi {
     background: rgb(156, 156, 218);
     color: rgb(27, 19, 10);
     border-radius: 35px;
@@ -1894,13 +1894,40 @@ h1{
     text-align: center;
     align-items: center;
      transition: all 0.5s ease;
+  
 }
 
-.picha p:hover{
+#chumbi:hover{
     translate: calc(2px);
     color: 338bdf8;
     background-color: rgba(40, 163, 224, 0.15);
     box-shadow: 0 0 15px rgba(56,189,248,0.6);
+}
+#oums{
+    color: red;
+    animation: popup 6s ease-in-out;
+}
+#lim{
+    color: rgb(5, 5, 57);
+    animation: popup 6s ease-in-out;
+}
+
+#team{
+     color: rgb(5, 5, 57);
+    animation: popup 6s ease-in-out;
+}
+.merchandise{
+    border-radius: 40px;
+    padding: 10px;
+}
+
+#merch{
+    border-radius: 3opx;
+}
+@media screen and (max-width: 768px){
+    .merchandise{
+        width: 90vw;
+    }
 }
 
 
