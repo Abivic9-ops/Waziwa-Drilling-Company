@@ -2020,6 +2020,106 @@ transform: translateY(-10px);
 
 
 
+/* THE ABOUT PAGE BY EMMANUEL VICTOR */
+h1{
+    text-align: center;
+}
+
+    
+.container{
+    display: flex;
+    justify-content: space-between;
+    /* background: rgb(156, 156, 218); */
+    border-radius: 35px;
+    padding: 20px;
+    margin: 5px;
+}
+
+.box0{
+    display: flex;
+    justify-content: space-betw
+    en;
+    background: rgb(156, 156, 218);
+    border-radius: 35px;
+    padding: 20px;
+    margin: 15px;
+    gap:20px;
+    transition: all o.5s ease;
+}
+.box0:hover{
+    color: 338bdf8;
+    background-color: rgba(40, 163, 224, 0.15);
+    box-shadow: 0 0 15px rgba(56,189,248,0.6);
+
+}
+
+.aboutimages{
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.container3{
+    background:rgba(9, 207, 29, 0.15) ;
+    border-radius: 35px;
+    padding: 20px;
+    margin: 15px;
+    
+}
+
+.box2{
+    background: #3ab4cf;
+    color: rgb(243, 242, 242);
+    border-radius: 35px;
+    padding: 20px;
+    margin: 15px;
+    text-align: center;
+    gap: 20px;
+    transition: all 0.7s ease;
+}
+
+.box2:hover{
+    color: #0a0a0a;
+    background: beige;
+    box-shadow: 0 0 15px rgb(156, 156, 218) ;
+}
+
+.container-x{
+    display: flex;
+}
+
+.picha{
+    border-radius: 35px;
+    margin: 10px;
+    padding: 10px;
+    transition: all0.5s ease;
+}
+.picha p {
+    background: rgb(156, 156, 218);
+    color: rgb(27, 19, 10);
+    border-radius: 35px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    align-items: center;
+     transition: all 0.5s ease;
+}
+
+.picha p:hover{
+    translate: calc(2px);
+    color: 338bdf8;
+    background-color: rgba(40, 163, 224, 0.15);
+    box-shadow: 0 0 15px rgba(56,189,248,0.6);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
