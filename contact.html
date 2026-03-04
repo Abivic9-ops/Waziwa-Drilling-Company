@@ -182,7 +182,7 @@ button:hover {
 }
 
 /* ===== HOVER GLOW COLORS ===== */
-.facebook:hover {
+/* .facebook:hover {
     background: #1877f2;
     box-shadow: 0 0 15px #1877f2;
 }
@@ -210,9 +210,27 @@ button:hover {
 .whatsapp:hover {
     background: #25d366;
     box-shadow: 0 0 15px #25d366;
+} */
+ .social-icons {
+    margin-top: 20px;
+    text-align: center;
 }
 
+.social-icons a {
+    display: inline-block;
+    margin: 0 12px;
+    font-size: 26px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #2563eb;
+    transform: scale(1.2);
+}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -250,13 +268,29 @@ button:hover {
     </form>
     <div class="social-icons">
 
-    <a href="#" class="icon facebook"><i class="fab fa-facebook-F"></i></a>
+    <!-- <a href="#" class="icon facebook"><i class="fab fa-facebook-F"></i></a>
     <a href="#" class="icon instagram"><i class="fab fa-instagram-IG"></i></a>
     <a href="#" class="icon twitter"><i class="fab fa-x-twitter-X"></i></a>
     <a href="#" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
     <a href="#" class="icon youtube"><i class="fab fa-youtube"></i></a>
-    <a href="#" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a> -->
+<div class="social-icons">
+    <a href="#">
+        <i class="fab fa-facebook-f"></i>
+    </a>
 
+    <a href="#">
+        <i class="fab fa-x-twitter"></i>
+    </a>
+
+    <a href="#">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="#">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+</div>
 </div>
 
     <div class="contact-info">
