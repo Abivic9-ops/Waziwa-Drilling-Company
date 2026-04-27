@@ -1525,18 +1525,20 @@ transform: translateY(-10px);
 }
 
 .footer-content {
-    display: flex;
-    gap: 3.0em;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.0em;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    margin: 15px;
-    max-width: 20%;
-    gap: 1.5rem;
+    padding: 10px;
+    gap: 1.2rem;
+    text-align: left;
 }
 
 .contact-info h3 {
@@ -1581,10 +1583,9 @@ transform: translateY(-10px);
 .services-info {
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    margin: 15px;
-    max-width: 20%;
+    padding: 10px;
     gap: 0.8rem;
+    text-align: left;
 }
 
 
@@ -1616,10 +1617,9 @@ transform: translateY(-10px);
 .certifications-info {
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    margin: 15px;
-    max-width: 20%;
+    padding: 10px;
     gap: 0.8rem;
+    text-align: left;
 }
 
 .certifications-info h3 {
@@ -1650,11 +1650,9 @@ transform: translateY(-10px);
 .links-info {
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    margin: 15px;
-    max-width: 20%;
+    padding: 10px;
     gap: 0.8rem;
-
+    text-align: left;
 }
 
 .links-info a {
@@ -1682,14 +1680,9 @@ transform: translateY(-10px);
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin: 35px;
-    position: relative;
-    padding: 15px;
-    justify-content: center;
-    text-align: center;
-
-
-
+    padding: 10px;
+    text-align: left;
+    align-items: flex-start;
 }
 
 .social-media .head {

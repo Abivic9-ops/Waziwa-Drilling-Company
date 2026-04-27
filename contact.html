@@ -1,306 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | Waziwa Drillers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Waziwa Drilling Company</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --site-teal: #74cbcc;
+            --site-cadet: cadetblue;
+            --site-yellow: #ffff00;
+            --site-dark: #0d1b2a;
+            --primary-gradient: linear-gradient(135deg, var(--site-cadet) 0%, #2bb7b9 100%);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --text-main: #2c3e50;
+            --text-muted: #7f8c8d;
+            --input-border: #dcdde1;
+            --card-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
 
-<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: var(--text-main);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
 
-/* ===== GLOBAL RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* Animated Background Blobs */
+        .bg-blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(116, 203, 204, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(50px);
+            animation: floatBlob 20s infinite alternate;
+        }
 
-/* ===== BODY BACKGROUND ===== */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29') no-repeat center center/cover;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
+        .blob-1 { top: -100px; left: -100px; background: radial-gradient(circle, rgba(116, 203, 204, 0.2) 0%, transparent 70%); }
+        .blob-2 { bottom: -100px; right: -100px; background: radial-gradient(circle, rgba(255, 255, 0, 0.15) 0%, transparent 70%); animation-delay: -5s; }
 
-/* ===== DARK OVERLAY ===== */
-body::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(6px);
-    z-index: 0;
-}
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.1); }
+        }
 
-/* ===== CONTAINER ===== */
-.container {
-    position: relative;
-    z-index: 2;
-    width: 90%;
-    max-width: 900px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 20px;
-    padding: 50px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
-    animation: fadeIn 1.5s ease-in-out;
-}
+        /* Hero Section */
+        .contact-hero {
+            position: relative;
+            height: 600px;
+            width: 100%;
+            background: url('Images/reception_bg.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* ===== HEADINGS ===== */
-h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-    color: #00f7ff;
-}
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(13, 27, 42, 0.7));
+        }
 
-h3 {
-    text-align: center;
-    font-weight: 300;
-    margin-bottom: 40px;
-    line-height: 1.6;
-    color: #ccc;
-}
+        .pulsating-logo-container {
+            z-index: 2;
+            text-align: center;
+        }
 
-/* ===== FORM GRID ===== */
-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
+        .pulsating-logo {
+            width: 220px;
+            height: auto;
+            border-radius: 25px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+            animation: pulsate 3s ease-in-out infinite;
+            background: white;
+            padding: 15px;
+        }
 
-/* Full width fields */
-.full {
-    grid-column: 1 / 3;
-}
+        @keyframes pulsate {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(116, 203, 204, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 60px rgba(255, 255, 0, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(116, 203, 204, 0.4); }
+        }
 
-/* ===== INPUT STYLING ===== */
-input, textarea, select {
-    width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    transition: 0.3s ease;
-}
+        /* Form Container */
+        .form-container-wrapper {
+            max-width: 1000px;
+            margin: -150px auto 100px;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
 
-input::placeholder,
-textarea::placeholder {
-    color: #bbb;
-}
+        .form-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 60px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
 
-input:focus,
-textarea:focus {
-    border: 1px solid #00f7ff;
-    box-shadow: 0 0 10px #00f7ff;
-}
+        .form-header-main {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-textarea {
-    resize: none;
-    height: 120px;
-}
+        .badge {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(116, 203, 204, 0.3);
+        }
 
-/* ===== BUTTON ===== */
-button {
-    grid-column: 1 / 3;
-    padding: 15px;
-    border-radius: 50px;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    background: linear-gradient(90deg, #00f7ff, #008cff);
-    color: black;
-    transition: 0.4s ease;
-}
+        .form-header-main h1 {
+            font-size: 3.2rem;
+            color: var(--site-dark);
+            margin-bottom: 15px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+        }
 
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #00f7ff;
-}
+        .form-header-main p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-/* ===== FOOTER INFO ===== */
-.contact-info {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 14px;
-    color: #aaa;
-}
+        /* Modern Detailed Form */
+        .modern-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
 
-/* ===== ANIMATION ===== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        .full-row { grid-column: 1 / -1; }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    form {
-        grid-template-columns: 1fr;
-    }
-    .full {
-        grid-column: auto;
-    }
-    button {
-        grid-column: auto;
-    }
-}
+        .section-header {
+            grid-column: 1 / -1;
+            margin-top: 30px;
+            padding: 15px 0;
+            border-bottom: 2.5px solid rgba(116, 203, 204, 0.2);
+            color: var(--site-cadet);
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-/* ===== SOCIAL ICONS ===== */
-.social-icons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-}
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.icon {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    color: white;
-    font-size: 18px;
-    text-decoration: none;
-    transition: 0.4s ease;
-    border: 1px solid rgba(255,255,255,0.2);
-}
+        label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--site-dark);
+            display: flex;
+            justify-content: space-between;
+        }
 
-/* ===== HOVER GLOW COLORS ===== */
-/* .facebook:hover {
-    background: #1877f2;
-    box-shadow: 0 0 15px #1877f2;
-}
+        .required-tag { color: #e74c3c; font-size: 0.8rem; font-weight: 400; }
 
-.instagram:hover {
-    background: #e1306c;
-    box-shadow: 0 0 15px #e1306c;
-}
+        .input-box {
+            position: relative;
+            transition: all 0.3s ease;
+        }
 
-.twitter:hover {
-    background: #000;
-    box-shadow: 0 0 15px #000;
-}
+        .input-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--site-cadet);
+            font-size: 1.2rem;
+        }
 
-.linkedin:hover {
-    background: #0a66c2;
-    box-shadow: 0 0 15px #0a66c2;
-}
+        input, select, textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 18px;
+            border: 2px solid transparent;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+        }
 
-.youtube:hover {
-    background: #ff0000;
-    box-shadow: 0 0 15px #ff0000;
-}
+        .has-icon input, .has-icon select { padding-left: 55px; }
 
-.whatsapp:hover {
-    background: #25d366;
-    box-shadow: 0 0 15px #25d366;
-} */
- .social-icons {
-    margin-top: 20px;
-    text-align: center;
-}
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--site-teal);
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(116, 203, 204, 0.1);
+            transform: translateY(-2px);
+        }
 
-.social-icons a {
-    display: inline-block;
-    margin: 0 12px;
-    font-size: 26px;
-    color: #333;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
+        /* Drilling Specific Inputs */
+        .range-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
 
-.social-icons a:hover {
-    color: #2563eb;
-    transform: scale(1.2);
-}
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        /* Checkbox Group */
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--input-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .checkbox-item:hover { border-color: var(--site-teal); }
+
+        /* Submit Button */
+        .btn-submit {
+            grid-column: 1 / -1;
+            margin-top: 40px;
+            background: var(--primary-gradient);
+            color: white;
+            padding: 22px;
+            border-radius: 20px;
+            border: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 30px rgba(43, 183, 185, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(43, 183, 185, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .btn-submit i { font-size: 1.6rem; transition: 0.3s; }
+        .btn-submit:hover i { transform: translateX(10px) rotate(-15deg); }
+
+        /* Agreement Card */
+        .policy-card {
+            background: rgba(116, 203, 204, 0.05);
+            padding: 30px;
+            border-radius: 25px;
+            border: 1px dashed var(--site-teal);
+            margin-top: 20px;
+        }
+
+        /* Footer Overrides for Perfection */
+        .section-footer {
+            margin-top: 0 !important;
+            border-top: 1px solid rgba(116, 203, 204, 0.2);
+        }
+
+        @media (max-width: 850px) {
+            .modern-form { grid-template-columns: 1fr; }
+            .form-header-main h1 { font-size: 2.5rem; }
+            .form-card { padding: 40px 20px; }
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Background Blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
 
-<div class="container">
-
-    <h1>Contact Us</h1>
-
-    <h3>
-        Reliable drilling solutions begin with clear communication. 
-        Reach out to us for borehole drilling, water surveys, consultation, 
-        or industrial drilling partnerships. Your message helps us deliver 
-        precision, safety, and sustainable water solutions.
-    </h3>
-
-    <form>
-
-        <input type="text" placeholder="First Name" required>
-        <input type="text" placeholder="Last Name (Optional)">
-
-        <input type="text" placeholder="Email or Phone Number" required>
-        <input type="text" placeholder="Address">
-
-        <select class="full">
-            <option value="">Select Service Needed</option>
-            <option>Borehole Drilling</option>
-            <option>Hydrogeological Survey</option>
-            <option>Water Pump Installation</option>
-            <option>Industrial Drilling</option>
-        </select>
-
-        <textarea maxlength="250" placeholder="Describe your project or inquiry..."></textarea>
-
-        <button type="submit">Send Message</button>
-
-    </form>
-    <div class="social-icons">
-
-    <!-- <a href="#" class="icon facebook"><i class="fab fa-facebook-F"></i></a>
-    <a href="#" class="icon instagram"><i class="fab fa-instagram-IG"></i></a>
-    <a href="#" class="icon twitter"><i class="fab fa-x-twitter-X"></i></a>
-    <a href="#" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#" class="icon youtube"><i class="fab fa-youtube"></i></a>
-    <a href="#" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a> -->
-<div class="social-icons">
-    <a href="#">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-    <a href="#">
-        <i class="fab fa-x-twitter"></i>
-    </a>
-
-    <a href="#">
-        <i class="fab fa-instagram"></i>
-    </a>
-
-    <a href="#">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-</div>
-</div>
-
-    <div class="contact-info">
-        📞 0711 380 689 | 📧 info@waziwa drillers.com  
-        <br> 24/7 Emergency Water Solutions
+    <!-- Pre-header -->
+    <div class="pre-head">
+        <div class="pre-head-content">
+            <p><i class='bx bxs-phone'></i> +254732437459 | +254706366041</p>
+            <p><i class='bx bx-envelope'></i> info@Waziwa Drillers.com</p>
+        </div>
     </div>
- 
-</div>
 
+    <!-- Header -->
+    <header>
+        <div>
+            <img class="header-image" src="Images/water wave.jpg" alt="water">
+        </div>
+        <div class="">
+            <nav class="page-links">
+                <a class="nav-links" href="home.html">Home</a>
+                <a class="nav-links" href="about us.html">About Us</a>
+                <a class="nav-links" href="services.html">Our Services</a>
+                <a class="nav-links" href="projects.html">Projects</a>
+                <a class="nav-links" href="contact.html">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="pulsating-logo-container" data-aos="zoom-in">
+                <img src="Images/Official-Logo.jpg" alt="Waziwa Logo" class="pulsating-logo">
+            </div>
+        </section>
+
+        <!-- Form Overlay Section -->
+        <div class="form-container-wrapper">
+            <div class="form-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="form-header-main">
+                    <span class="badge">Request a Quote</span>
+                    <h1>Start Your Project</h1>
+                    <p>Tell us about your drilling needs. Our hydrogeological experts will analyze your request and provide a tailored technical proposal.</p>
+                </div>
+
+                <form action="#" method="POST" class="modern-form">
+                    
+                    <!-- Section: Project Identity -->
+                    <div class="section-header">
+                        <i class="fa-solid fa-id-card"></i> Project Identity
+                    </div>
+
+                    <div class="form-field">
+                        <label>Full Name <span class="required-tag">*Required</span></label>
+                        <div class="input-box has-icon">
+                            <i class="fa-solid fa-user-check"></i>
+                            <input type="text" placeholder="e.g. John Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Email Address <span class="required-tag">*Required</span></label>
+                        <div class="input-box has-icon">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                            <input type="email" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Phone Number <span class="required-tag">*Required</span></label>
+                        <div class="input-box has-icon">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <input type="tel" placeholder="+254 7XX XXX XXX" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Drilling Site Location</label>
+                        <div class="input-box has-icon">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                            <input type="text" placeholder="County, Town, Area Name" required>
+                        </div>
+                    </div>
+
+                    <!-- Section: Technical Requirements -->
+                    <div class="section-header">
+                        <i class="fa-solid fa-bore-hole"></i> Technical Details
+                    </div>
+
+                    <div class="form-field">
+                        <label>Project Scale</label>
+                        <div class="input-box has-icon">
+                            <i class="fa-solid fa-mountain-city"></i>
+                            <select required>
+                                <option value="" disabled selected>Select Scale</option>
+                                <option value="residential">Residential (Home Use)</option>
+                                <option value="agricultural">Agricultural (Farm/Irrigation)</option>
+                                <option value="industrial">Industrial / Commercial</option>
+                                <option value="community">Community / NGO Project</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Estimated Depth Needed (Meters)</label>
+                        <div class="input-box has-icon">
+                            <i class="fa-solid fa-arrows-up-down"></i>
+                            <input type="number" placeholder="e.g. 150" min="20" max="500">
+                        </div>
+                        <div class="range-info"><span>Min: 20m</span><span>Max: 500m</span></div>
+                    </div>
+
+                    <div class="form-field full-row">
+                        <label>Primary Water Usage</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item"><input type="checkbox"> Domestic</label>
+                            <label class="checkbox-item"><input type="checkbox"> Irrigation</label>
+                            <label class="checkbox-item"><input type="checkbox"> Livestock</label>
+                            <label class="checkbox-item"><input type="checkbox"> Construction</label>
+                            <label class="checkbox-item"><input type="checkbox"> Bottling/Process</label>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Project Urgency</label>
+                        <div class="input-box has-icon">
+                            <i class="fa-solid fa-clock"></i>
+                            <select>
+                                <option value="immediate">Immediate (Ready to start)</option>
+                                <option value="month">Within 30 Days</option>
+                                <option value="planning">Planning Phase (3+ months)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Geological Report Status</label>
+                        <div class="input-box has-icon">
+                            <i class="fa-solid fa-file-contract"></i>
+                            <select>
+                                <option value="no">Need Waziwa to conduct survey</option>
+                                <option value="yes">I have an existing report</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-field full-row">
+                        <label>Detailed Project Requirements</label>
+                        <textarea placeholder="Please describe any specific terrain issues, power availability (Solar/Grid), or tank requirements..."></textarea>
+                    </div>
+
+                    <!-- Section: Trust -->
+                    <div class="policy-card full-row">
+                        <div style="display: flex; gap: 20px;">
+                            <input type="checkbox" style="width: 25px; height: 25px; flex-shrink: 0;" required>
+                            <div>
+                                <h4 style="margin: 0 0 10px 0; color: var(--site-dark);"><i class="fa-solid fa-shield-halved"></i> Waziwa Data Protection</h4>
+                                <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+                                    By submitting this form, you authorize Waziwa Drilling Company to process your details for technical evaluation. We guarantee your data is encrypted and never shared with 3rd party equipment providers without your consent.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-droplet"></i> Request Technical Proposal
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="section-footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="email-part">
+                    <div class="email-icon"><a href="#"><i class='bx bx-envelope'></i></a></div>
+                    <p> <a href="#">info@Waziwa Drillers.com </a></p>
+                </div>
+                <div class="phone-part">
+                    <div class="phone-icon"><a href="#"><i class='bx bx-phone'></i></a></div>
+                    <div class="phone-part-text">
+                        <p>+254732437459</p>
+                        <p>+254706366041</p>
+                        <p>0711 380 689</p> 
+                    </div>
+                </div>
+                <div class="location-info">
+                    <div class="location-icon"> <a href="#"><i class='bx bx-current-location'></i></a></div>
+                    <div class="location-text">Waziwa Drilling Co Ltd. Ext.No 14 Off thika Road Basil SS Hotel juja kenyatta Road P.O Box 63558-00619 Nairobi, Kenya.</div>
+                </div>
+            </div>
+
+            <div class="services-info">
+                <h3>Our Services</h3>
+                <ul>
+                    <li>Borehole Survey</li>
+                    <li>Storage Tanks</li>
+                    <li>Test Pumping</li>
+                    <li>Submersible Pumps</li>
+                    <li>Sales Screen Pipes</li>
+                    <li>Hand Pumps</li>
+                </ul>
+            </div>
+
+            <div class="certifications-info">
+                <h3>Quality Standards</h3>
+                <ul>
+                    <li>Licensed & Insured</li>
+                    <li>A NEMA Compliance</li>
+                    <li>Safety Certified</li>
+                    <li>Industrial Members</li>
+                </ul>
+            </div>
+
+            <div class="links-info">
+                <h3>Quick Links</h3>
+                <a href="home.html"><i class='bx bx-home'></i> Home</a>
+                <a href="about us.html"><i class='bx bx-user-circle'></i> About</a>
+                <a href="services.html"><i class='bx bx-folder'></i> Services</a>
+                <a href="projects.html"><i class='bx bxs-briefcase'></i> Projects</a>
+                <a href="contact.html" class="active"><i class='bx bxs-phone'></i> Contact</a>
+            </div>
+
+            <div class="social-media">
+                <h3 class="head">Connect With Us</h3>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="title-4">
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>&copy;2026 Waziwa Drilling Company | Jaguar Drillers. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 
-  
 </html>
